@@ -69,7 +69,7 @@ function setup() {
         console.log(pageId)
         let content = page[pageId].revisions[0]['*'];
         console.log(content)
-        let wordRegex = / (?:GDP_PPP_per_capita     = {{\w*}}) \$(\d*,\d*)/
+        let wordRegex = / (?:GDP_PPP_per_capita     =.*\$)(\d*,\d*)/
         gdp = content.match(wordRegex)[1]
         gdp =gdp.replaceAll(',','');
         Number.parseInt(gdp)
@@ -81,7 +81,7 @@ function setup() {
         let page2 = data2.query.pages;
         let pageId2 = Object.keys(data2.query.pages)[0];
         let content2 = page2[pageId2].revisions[0]['*'];
-        let wordRegex2 = / (?:GDP_PPP_per_capita     = {{\w*}}) \$(\d*,\d*)/
+        let wordRegex2 = / (?:GDP_PPP_per_capita     =.*\$)(\d*,\d*)/
         gdp2 = content2.match(wordRegex2)[1]
         gdp2  =gdp2.replaceAll(',','');
         Number.parseInt(gdp2);
